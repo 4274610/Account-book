@@ -1,5 +1,5 @@
 //引用文件
-import mp3 from "../assets/音效.aac";
+import mp3 from "../assets/radio.aac";
 //播放音频
 export const playAudio=()=>{
     let audio= new Audio();

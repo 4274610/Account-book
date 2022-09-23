@@ -23,21 +23,20 @@
       </span>
 
     </div>
-      <img src="../../../public/edit4.png" alt="" style="width:100vw">
     <div class="container">
     <div class="category">
       <span v-if="category">
-        <van-icon :name="category.icon" />&nbsp;{{category.text}}
+        <van-icon :name="category.icon" color="rgb(250, 90, 117)"/>&nbsp;{{category.text}}
       </span>
       <span>{{ operator }}</span>
     </div>
     <!-- 日期选择器 -->
     <div class="operate">
       <span><AcountingDate @selectedTime="selected_time"></AcountingDate></span>
-      <span>
+      <!-- <span>
         <span><van-icon name="edit" size="1rem" /></span>
         <span><van-icon name="photo-o" size="1rem" /></span>
-      </span>
+      </span> -->
     </div>
 
     <!-- 简易计算器功能 -->  
@@ -283,11 +282,14 @@ width:100vw;
  bottom:0rem;
  background-color: white;
 }
+/deep/.van-grid-item{
+    height:6rem;
+  }
 
 .header{
   height: 10vh;
   width:100vw;
-  background-color: pink;
+  background-color: rgb(252, 175, 188);
   display: flex;
   align-items: center;
 

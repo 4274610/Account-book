@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <van-cell is-link @click="showPopup"> -->
-    <van-grid :column-num="3" :border="false">
+    <van-grid :column-num="4" :border="false">
       <van-grid-item
         v-for="income in incomeItem"
         :key="income.id"
@@ -61,6 +61,13 @@ export default {
           color: "inherit",
           type: "income",
         },
+        {
+          id: "006",
+          icon: "bookmark-o",
+          text: "利息",
+          color: "inherit",
+          type: "income",
+        },
       ],
       income: false,
     };
@@ -110,7 +117,8 @@ export default {
     sendNewAdd() {
       if (this.$route.query) { 
        let list =JSON.parse (localStorage.getItem("newIncomeItem"))||[];
-       this.incomeItem.push(...list)    
+       this.incomeItem.push(...list)  
+       localStorage.setItem("income",JSON.stringify (this.incomeItem))  
       }
     },
   },

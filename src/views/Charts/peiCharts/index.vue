@@ -19,29 +19,12 @@ export default {
     };
   },
   methods: {
-    // hanleClick(){
-    //    this.$bus.$emit("showTime",this.chart_time)
-    // },
-    //默认展示的月份
-    // gettodayMonthAndYear() {
-      // let nowTime = new Date();
-      // let year = nowTime.getFullYear();
-      // let month = nowTime.getMonth() + 1;
-      // month = month < 10 ? "0" + month : month;
-      // let defaultTime = `${year}/${month}`;
-      // if(this.times!=defaultTime){
-      //   this.chart_time=defaultTime
-      // }else     
-      // { 
-        // this.chart_time=this.times
-        // }
-    // },
-
     //饼图的数据
     peiChartsData() {
       let category = []; //数组里对象
       this.chartsData.forEach((i) => {
         this.outArr=[]
+        this.total=0
         // console.log('i.date',i.date)
         if (i.date.substring(0, 7) == this.chart_time){
             category.push(...i.items)
@@ -69,29 +52,25 @@ export default {
           value: moneyAdd,
           name: nameArr[index],
         });
-      });
-
+      
       let moneyTotal =0
       for(let k of this.outArr){
        moneyTotal+=k.value
-       this.total=moneyTotal.toFixed(2)+"元"
+       this.total=moneyTotal.toFixed(2)
       }
+      });
     },
     //饼图
     charts() {
       let _this = this
       let option = {
         title: {
-         subtext:"本月支出"+this.total,
+         subtext:"本月支出" + _this.total+"元",
          left: 'center'  
          },
         toolbox: {
           right: 10,
           feature: {
-            magicType: {
-              type: ["pei", "bar"],
-            },
-            restore: {}, //还原
             saveAsImage: {}, //保存为图片
           },
         },
@@ -199,7 +178,7 @@ export default {
       console.log("expensenewVal", this.chart_time);
       this.peiChartsData();
       this.peiCharts.setOption({
-        title:{subtext:"本月支出"+this.total},
+        title:{subtext:"本月支出"+this.total+"元"},
         series: { data: this.outArr },
       });
     },
@@ -207,9 +186,6 @@ export default {
     deep: true,
     immediate: true,
   },
-  // beforeMount() {
-  //   this.gettodayMonthAndYear();
-  // },
   mounted() {
     this.peiChartsData();
     this.charts();

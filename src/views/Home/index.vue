@@ -5,9 +5,9 @@
         <span class="user" style="font-weight: bold"
           >柚子的账本 <van-icon name="description"
         /></span>
-        <span><DatetimePicker @sendTime="sendTime"></DatetimePicker></span>
+        <span><DatetimePicker @sendTime="sendTime" class="time"></DatetimePicker></span>
       </div>
-
+        <!-- 粉色部分 -->
       <div class="back">
         <div class="title title1">
           <span>支出</span>
@@ -40,8 +40,8 @@
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
                   p-id="2444"
-                  width="14"
-                  height="11"
+                  width="16"
+                  height="10"
                 >
                   <path
                     d="M511.999488 819.413462 72.8374 204.586538 951.1626 204.586538Z"
@@ -53,10 +53,10 @@
             </span>
             <span class="outer">
               <span v-show="pay(dayList.items)[0]"
-                >支出&nbsp;{{ pay(dayList.items)[0] }}&nbsp;&nbsp;</span
+                >支出：{{ pay(dayList.items)[0] }}&nbsp;&nbsp;</span
               >
               <span v-show="pay(dayList.items)[1]"
-                >收入&nbsp;{{ pay(dayList.items)[1] }}&nbsp;&nbsp;</span
+                >收入：{{ pay(dayList.items)[1] }}&nbsp;&nbsp;</span
               >
             </span>
           </div>
@@ -73,7 +73,7 @@
               </div>
               <!-- 删除 -->
               <template #right>
-                <van-button square type="danger" color="grey">
+                <van-button square type="danger" color="red">
                   <van-icon
                     class="smallicon"
                     name="delete-o"
@@ -82,18 +82,7 @@
                     @click="cancel(index, dayList)"
                   />
                 </van-button>
-              </template>
-              <!-- 编辑 -->
-              <template #left>
-                <van-button square type="primary" color="grey">
-                  <van-icon
-                    class="smallicon"
-                    name="edit"
-                    color="white"
-                    size="large"
-                  />
-                </van-button>
-              </template>
+              </template>  
             </van-swipe-cell>
           </li>
         </ul>
@@ -252,17 +241,6 @@ export default {
       // console.log(this.accunt_newlist);
       // localStorage.setItem("chartsData", JSON.stringify(this.accunt_newlist));
     },
-    //展示内存的显示月份的数据
-    // localTime() {
-    //   this.$nextTick(() => {
-    //     let time = JSON.parse(localStorage.getItem("chartsTime"));
-    //     this.accunt_newlist = this.accunt_list.filter((item) => {
-    //       return item.date.substring(0, 7) == time;
-    //     });
-    //   });
-
-    //   localStorage.setItem("chartsData", JSON.stringify(this.accunt_newlist));
-    // },
   },
 };
 </script>
@@ -271,13 +249,16 @@ export default {
 .smallicon {
   margin-bottom: 10px;
 }
-
+/deep/.van-cell__value--alone{
+   background:linear-gradient(to bottom, rgb(252, 175, 188),rgb(252, 178, 191) )
+}
 .top {
   position: fixed;
   top: 0rem;
   width: 100vw;
-  height: 20vh;
+  height: 9rem;
   z-index: 999;
+  background:linear-gradient(to bottom, rgb(250, 163, 177),pink 85% )
 }
 .header {
   color: rgb(118, 113, 113);
@@ -287,9 +268,12 @@ export default {
   font-size: 18px;
 }
 .back {
-  background-color: pink;
-  border-radius: 1rem;
+  background-color:white;
+  border-radius: 5px;
+  width:96%;
+  margin: 0 auto;
   height: 5rem;
+  box-shadow: 3px 3px 5px  rgb(236, 232, 232);
 }
 .title {
   display: flex;
@@ -302,9 +286,9 @@ export default {
   line-height: 2.5rem;
 }
 .title2 {
-  font-size: 1.2rem;
-  height: 2.5rem;
-  /* line-height:3rem; */
+  font-size: 1.3rem;
+  height: 3.3rem;
+  line-height:2rem;
 }
 .title span {
   flex: 1;
@@ -313,14 +297,14 @@ export default {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgb(244, 97, 122);
-  width: 96vw;
-  margin: 0.5rem auto;
+  width: 96%;
+  margin: 0.8rem auto;
 
   /* margin-bottom:1rem */
 }
 .xtitle .outer {
   margin: 0.6rem 0.6rem 0 0.6rem;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .project {

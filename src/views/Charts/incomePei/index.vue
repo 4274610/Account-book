@@ -39,6 +39,7 @@ export default {
       let category = []; //数组里对象
       this.chartsData.forEach((i) => {
         this.outArr = [];
+        this.total=0
         // console.log('i.date',i.date)
         if (i.date.substring(0, 7) == this.chart_time) {
           category.push(...i.items);
@@ -66,28 +67,24 @@ export default {
           value: moneyAdd,
           name: nameArr[index],
         });
-      });
       let moneyTotal =0
       for(let k of this.outArr){
-       moneyTotal+=k.value
-       this.total=moneyTotal.toFixed(2)+"元"
+        moneyTotal+=k.value
+       this.total=moneyTotal.toFixed(2)
       }
+        });
     },
     //饼图
     charts() {
       let _this = this;
       let option = {
          title: {
-         subtext:"本月收入"+this.total,
+         subtext:"本月收入"+this.total+"元",
          left: 'center'  
          },
         toolbox: {
           right: 10,
           feature: {
-            magicType: {
-              type: ["pei", "bar"],
-            },
-            restore: {}, //还原
             saveAsImage: {}, //保存为图片
           },
         },
@@ -194,7 +191,7 @@ export default {
       console.log("incomenewVal", this.chart_time);
       this.peiChartsData();
       this.peiCharts.setOption({
-         title:{subtext:"本月支出"+this.total},
+         title:{subtext:"本月收入"+this.total+"元"},
         series: { data: this.outArr },
       });
     },

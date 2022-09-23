@@ -27,7 +27,7 @@
           </svg>
         </span>
         <span>新增{{ category }}类别</span>
-        <span class="yesorno" @click="confirm">完成</span>
+        <span class="yesorno" @click="confirm">确认</span>
       </div>
       <!-- 新增项目 -->
       <div class="selection-container">
@@ -42,17 +42,17 @@
             v-model="value"
             type="text"
             placeholder="请输入类别(最多四个字)"
-            autofocus
             style="border: none"
             maxlength="4"
         /></span>
       </div>
       <!-- 选择图标区域 -->
+      <div class="selectionIcon">请选择图标</div>
       <van-grid :border="false">
         <van-grid-item v-for="(icon, index) in icons" :key="index">
           <van-icon
             :name="icon.name"
-            size="1.5rem"
+            size="1.7rem"
             :color="icon.color"
             @click="changeColor(icon)"
           />
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import mp3 from "../../../assets/音效.aac";
+import mp3 from "../../../assets/radio.aac";
 import { nanoid } from "nanoid";
 export default {
   name: "Add",
@@ -97,7 +97,7 @@ export default {
       ],
       defaultIcon: "add-o",
       show: true,
-      value: "",
+      value: "", //类别名称
     };
   },
   computed: {
@@ -128,56 +128,79 @@ export default {
     },
     //添加类别成功后,完成按钮
     confirm() {
-      if (this.value != "") {      
-        if(this.category=="支出"){     
-        let newExpenseItem = {
-          id: nanoid(),
-          icon: this.defaultIcon,
-          text: this.value,
-          color: "inherit",
-          type: "expense",
-        };
-        //存进去
-        let oldList = JSON.parse(localStorage.getItem("newExpenseItem"));
-        if (oldList) {
-          oldList.push(newExpenseItem);
-          localStorage.setItem("newExpenseItem", JSON.stringify(oldList));
-        } else {
-          let newList = [];
-          newList.push(newExpenseItem);
-          localStorage.setItem("newExpenseItem", JSON.stringify(newList));
-        }
-        this.$router.push({
-          path: "/accounting",
-          query: { category: "expense" },
-        });
-          }else{
-            let newIncomeItem = {
-          id: nanoid(),
-          icon: this.defaultIcon,
-          text: this.value,
-          color: "inherit",
-          type: "income",
-        };
-        //存进去
-        let oldList = JSON.parse(localStorage.getItem("newIncomeItem"));
-        if (oldList) {
-          oldList.push(newIncomeItem);
-          localStorage.setItem("newIncomeItem", JSON.stringify(oldList));
-        } else {
-          let newList = [];
-          newList.push(newIncomeItem);
-          localStorage.setItem("newIncomeItem", JSON.stringify(newList));
-        }
-        this.$router.push({
-          path: "/accounting",
-          query: { category: "income" },
-        });
+      if (this.value != ""&&this.defaultIcon!="add-o") {
+        if (this.category == "支出") {
+          let expense = JSON.parse(localStorage.getItem("expense"));
+          let flag = expense.some((item) => {
+            return this.value == item.text;
+          });
+          console.log(flag);
+          if (flag) {
+            this.$toast("类别不能重复");
+            return          
+          } else {
+            let newExpenseItem = {
+              id: nanoid(),
+              icon: this.defaultIcon,
+              text: this.value,
+              color: "inherit",
+              type: "expense",
+            };
+            //存进去
+            let oldList = JSON.parse(localStorage.getItem("newExpenseItem"));
+            if (oldList) {
+              oldList.push(newExpenseItem);
+              localStorage.setItem("newExpenseItem", JSON.stringify(oldList));
+            } else {
+              let newList = [];
+              newList.push(newExpenseItem);
+              localStorage.setItem("newExpenseItem", JSON.stringify(newList));
+            }
+            this.$router.push({
+              path: "/accounting",
+              query: { category: "expense" },
+            });
+          } //else的括号
+        } else if (this.category == "收入") {
+          let income = JSON.parse(localStorage.getItem("income"));
+          let flag = income.some((item) => {
+            return this.value == item.text;
+          });
+          console.log(flag);
+          if (flag) {
+            this.$toast("类别不能重复");
+            return          
+          } else {
+
+          let newIncomeItem = {
+            id: nanoid(),
+            icon: this.defaultIcon,
+            text: this.value,
+            color: "inherit",
+            type: "income",
+          };
+          //存进去
+          let oldList = JSON.parse(localStorage.getItem("newIncomeItem"));
+          if (oldList) {
+            oldList.push(newIncomeItem);
+            localStorage.setItem("newIncomeItem", JSON.stringify(oldList));
+          } else {
+            let newList = [];
+            newList.push(newIncomeItem);
+            localStorage.setItem("newIncomeItem", JSON.stringify(newList));
           }
-         this.show = false;
+
+          this.$router.push({
+            path: "/accounting",
+            query: { category: "income" },
+          });
+           } //else的括号
+        }
+        this.show = false;
       } else {
-        this.$toast("还没有添加类别")}
+        this.$toast("请添加类别或选择图标");
       }
+    },
   },
 };
 </script>
@@ -186,11 +209,13 @@ export default {
 .title {
   height: 10vh;
   width: 100vw;
-  background-color: pink;
+  background-color: rgb(252, 175, 188);
   line-height: 10vh;
   text-align: center;
   display: flex;
   justify-content: space-between;
+  line-height: 13vh;
+  font-size:0.9rem
 }
 .selection-container {
   margin: 1rem;
@@ -207,5 +232,11 @@ export default {
   margin-right: 1rem;
   font-size: 14px;
   color: rgb(60, 59, 59);
+}
+.selectionIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
 }
 </style>

@@ -213,7 +213,7 @@ export default {
 .header {
   height: 10vh;
   width: 100vw;
-  background-color: pink;
+  background-color: rgb(252, 175, 188);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -70,6 +70,13 @@ let router = new VueRouter({
       component: () => import("@/views/User/exportFile"),
       meta: { isShowFooter: false },
     },
+    //修改信息页面
+    {
+      name: "Info",
+      path: "/info",
+      component: () => import("@/views/User/Info"),
+      meta: { isShowFooter: false },
+    },
   ],
 });
 export default router;

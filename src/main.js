@@ -22,7 +22,11 @@ import { Circle } from 'vant';
 import { Progress } from 'vant';
 import { RadioGroup, Radio } from 'vant';
 import { Collapse, CollapseItem } from 'vant';
+import { Image as VanImage } from 'vant';
+import { Uploader } from 'vant';
 
+Vue.use(Uploader);
+Vue.use(VanImage);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Radio);

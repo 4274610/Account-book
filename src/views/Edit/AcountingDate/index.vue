@@ -29,6 +29,7 @@ export default {
   },
   
   methods: {
+    //默认展示的日期
     gettodayTime(){
       let nowTime = new Date();
       let year = nowTime.getFullYear();
