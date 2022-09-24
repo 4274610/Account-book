@@ -3,7 +3,7 @@
     <span>
     <van-cell is-link @click="showPopup">
       <div class="time">
-    <span>{{ currentDate }}</span>
+    <span>{{ date }}</span>
       <van-icon name="arrow-down" />
       </div>
     </van-cell>
@@ -29,15 +29,17 @@ export default {
   name: "DatetimePicker",
   data() {
     return {
-      minDate: new Date(2022, 0, 1),
-      maxDate: new Date(2100, 10, 1),
+      minDate: new Date(2010, 0, 1),
+      maxDate: new Date(2030, 10, 1),
       currentDate: "",
       show: false,
+      date:""
     };
   },
   methods: {
     showPopup() {
       this.show = true;
+      this.currentDate = new Date();
     },
     formatter(type, val) {
       if (type === "year") {
@@ -53,8 +55,11 @@ export default {
       let year = nowTime.getFullYear();
       let month = nowTime.getMonth() + 1;
       month=month<10?"0"+month:month;
-      this.currentDate = `${year}/${month}`
-      localStorage.setItem("chartsTime",this.currentDate)
+      // this.currentDate = `${year}/${month}`
+      this.date=`${year}/${month}`
+      localStorage.setItem("chartsTime",this.date)
+
+      // localStorage.setItem("chartsTime",this.currentDate)
     },
     //选中的时间和确认按钮的回调
     getSelectMonthAndYear(value){
@@ -63,11 +68,15 @@ export default {
       month=month<10?"0"+month:month;
       let result=`${year}/${month}`
       // console.log("value",value,result);
-      this.currentDate=result
+      // this.currentDate=result
+      this.date=result
+
       this.show=false
       //把选中的时间传给父组件
-      this.$emit("sendTime",this.currentDate)
-      localStorage.setItem("chartsTime",this.currentDate)
+      // this.$emit("sendTime",this.currentDate)
+      // localStorage.setItem("chartsTime",this.currentDate)
+      this.$emit("sendTime",this.date)
+      localStorage.setItem("chartsTime",this.date)
     },
     //取消按钮的回调
     cancel(){

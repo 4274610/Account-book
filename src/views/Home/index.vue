@@ -274,6 +274,8 @@ export default {
   margin: 0 auto;
   height: 5rem;
   box-shadow: 3px 3px 5px  rgb(236, 232, 232);
+  /* backdrop-filter: blur: ;(100px) saturate(1.8); */
+  /* -webkit-backdrop-filter: blur(100px) saturate(1.8); */
 }
 .title {
   display: flex;

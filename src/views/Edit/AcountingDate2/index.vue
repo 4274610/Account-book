@@ -8,12 +8,12 @@
       color="pink"
       :min-date="min"
       :max-date="max"
-      :show-mark="false" 
       :round="false"
       :show-title="false" 
       :style="{ height:'50vh' }"
       
     />
+ 
   </div>
 </template>
 <script>

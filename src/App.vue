@@ -25,7 +25,7 @@ export default {
   color: #2c3e50; */
   /* margin-top: 30px; */
 }
-body {
+/* body {
     padding-top: constant(safe-area-inset-top);
     padding-top: env(safe-area-inset-top);
     padding-bottom: constant(safe-area-inset-bottom);
@@ -34,5 +34,5 @@ body {
     padding-left: env(safe-area-inset-left);
     padding-right: constant(safe-area-inset-right);
     padding-right: env(safe-area-inset-right);
-}
+} */
 </style>

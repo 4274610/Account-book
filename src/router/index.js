@@ -77,6 +77,13 @@ let router = new VueRouter({
       component: () => import("@/views/User/Info"),
       meta: { isShowFooter: false },
     },
+    //测试
+    {
+      name: "test",
+      path: "/test",
+      component: () => import("@/views/test/test"),
+      meta: { isShowFooter: false },
+    },
   ],
 });
 export default router;

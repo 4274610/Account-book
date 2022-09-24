@@ -83,8 +83,8 @@ export default {
     },
     //获得要展示的月份的数据
     sendTime(time) {
-      console.log("time",time);
       this.times = time;
+      // console.log("time",time);
       // localStorage.setItem("chartsTime",JSON.stringify (time))
     },
   },

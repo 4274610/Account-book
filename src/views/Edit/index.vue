@@ -32,7 +32,9 @@
     </div>
     <!-- 日期选择器 -->
     <div class="operate">
-      <span><AcountingDate @selectedTime="selected_time"></AcountingDate></span>
+      <span><AccountingDate @selectedTime="selected_time"></AccountingDate></span>
+      
+      <!-- <span><AccountingDate @selectedTime="selected_time"></AccountingDate></span> -->
       <!-- <span>
         <span><van-icon name="edit" size="1rem" /></span>
         <span><van-icon name="photo-o" size="1rem" /></span>
@@ -59,7 +61,7 @@ export default {
   name: "Edit",
   // props: ["expense"],
   components: {
-    AcountingDate: () => import("./AcountingDate"),
+    AccountingDate: () => import("./AccountingDate"),
   },
   data() {
     return {
@@ -319,5 +321,8 @@ width:100vw;
 }
 /deep/.van-grid-item__text {
   font-size: 1.2rem;
+}
+/deep/.van-cell--clickable{
+  margin-bottom: 1rem;
 }
 </style>
