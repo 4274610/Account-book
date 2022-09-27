@@ -22,8 +22,6 @@ export default {
   data() {
     return {
       show: false,
-      //   minDate: new Date(2020, 0, 1),
-      //   maxDate: new Date(2025, 10, 1),
       currentDate: "",
       maxDate: new Date(2025, 10, 1), 
       minDate: new Date(1990, 0, 1),

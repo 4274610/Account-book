@@ -1,4 +1,5 @@
 // 时间戳，年-月-日 时-分-秒
+// 把时间戳转成正常的日期格式
 export function formatDate(now) {
     var year = now.getFullYear(); //取得4位数的年份
     var month = addzoer(now.getMonth() + 1); //取得日期中的月份，其中0表示1月，11表示12月

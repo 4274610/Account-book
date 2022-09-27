@@ -24,7 +24,9 @@ import { RadioGroup, Radio } from 'vant';
 import { Collapse, CollapseItem } from 'vant';
 import { Image as VanImage } from 'vant';
 import { Uploader } from 'vant';
+import { Form } from 'vant';
 
+Vue.use(Form);
 Vue.use(Uploader);
 Vue.use(VanImage);
 Vue.use(Collapse);
@@ -34,13 +36,11 @@ Vue.use(RadioGroup);
 Vue.use(Progress);
 Vue.use(Circle);
 Vue.use(Overlay);
-
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 Vue.use(Button);
 Vue.use(SwipeCell);
 Vue.use(Toast);
-
 Vue.use(Badge);
 Vue.use(Field);
 Vue.use(Dialog);
