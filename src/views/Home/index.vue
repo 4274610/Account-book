@@ -2,8 +2,8 @@
   <div >
     <div class="top">
       <div class="header">
-        <span class="user" style="font-weight: bold"
-          >柚子的账本 <van-icon name="description"
+        <span class="user" style="font-weight: bold;color:black"
+          >账单明细 <van-icon name="description"
         /></span>
         <span><DatetimePicker @sendTime="sendTime" class="time"></DatetimePicker></span>
       </div>

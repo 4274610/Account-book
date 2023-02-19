@@ -12,7 +12,7 @@
           v-model="fileList"
           multiple
           :max-count="1"
-          :max-size="500 * 1024"
+          :max-size="1024 * 1024"
           @oversize="onOversize"
         />
       </div>
@@ -61,8 +61,12 @@ export default {
     return {
       greetings: "",
       nickname: this.$route.query.nickname,
-      fileList: [],
-      //  img:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202006%2F21%2F20200621031631_lggnn.thumb.400_0.png&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666517578&t=b26be4463c31e69c4076d4cbf841dc56",
+      fileList: [
+      //   {
+      //   url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202006%2F21%2F20200621031631_lggnn.thumb.400_0.png&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1666517578&t=b26be4463c31e69c4076d4cbf841dc56',
+      // }
+      ],
+     
       truePhone: "",
       trueEmail: "",
     };

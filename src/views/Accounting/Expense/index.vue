@@ -181,7 +181,7 @@ export default {
   methods: {
     //排他
     changeColor(expense) {
-      this.$audio.playAudio()
+      // this.$audio.playAudio()
       this.expenseItem.forEach((item) => {
         item.color = "inherit";
       });

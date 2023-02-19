@@ -25,10 +25,13 @@ export default {
 
 <style scoped>
 .header {
-  padding-top: 3.5vh;
+  padding-top: 4vh;
   height: 10vh;
   width:100vw;
   background-color: rgb(252, 175, 188);
+}
+/deep/.van-tabs__wrap{
+height: 6vh;
 }
 
 </style>

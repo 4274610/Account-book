@@ -71,7 +71,7 @@ new Vue({
   router,
   beforeCreate(){
     Vue.prototype.$bus=this //安装全局事件总线,vm、所有的vc都能看见它
-    Vue.prototype.$audio=audio
+    // Vue.prototype.$audio=audio
   }
 }).$mount('#app')
  

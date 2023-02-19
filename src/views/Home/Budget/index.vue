@@ -23,7 +23,7 @@
         <van-progress
           :percentage="percentage"
           :pivot-text='percentage+"%"'
-          pivot-color="rgb(173, 26, 51)"
+          pivot-color="rgb(224, 142, 155)"
           color="linear-gradient(to right,pink, rgb(236, 94, 117))"
           stroke-width="20"
         />
@@ -68,6 +68,7 @@ export default {
 
 .content {
   margin-top: 5vh;
+
 
 }
 img {

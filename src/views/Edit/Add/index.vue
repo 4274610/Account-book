@@ -9,22 +9,7 @@
     >
       <div class="title">
         <span class="yesorno" @click="cancel">
-          <svg
-            t="1663239639867"
-            class="icon"
-            viewBox="0 0 1024 1024"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            p-id="11904"
-            width="18"
-            height="16"
-          >
-            <path
-              d="M257.2 567.1h584.5c29 0 52.5-23.4 52.5-52.2V512c0-28.8-23.5-52.2-52.5-52.2H255.9L431 284.1c20.2-20.3 20.2-53 0-73.3l-0.4-0.4c-20.2-20.3-53.1-20.5-73.6-0.5l-0.5 0.5L71.8 496.1a26.013 26.013 0 0 0 0 36.7l55.7 55.9L352 813.8c20.4 20.5 53.7 20.6 74.3 0.4l0.4-0.4 1.7-1.7c20.3-20.3 20.3-53.1 0-73.4L257.2 567.1z"
-              p-id="11905"
-              fill="#5A5A5A"
-            ></path>
-          </svg>
+          <svg t="1676551117665" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2349" width="20" height="20"><path d="M493.44 152.32L448 106.88 312.32 242.56l-45.44 45.44 45.44 45.44L448 469.12l45.44-45.44L357.76 288l135.68-135.68z" fill="#2C2C2C" p-id="2350"></path><path d="M608 256H320v64h288a224 224 0 0 1 0 448H192a32 32 0 0 0 0 64h416a288 288 0 0 0 0-576z" fill="#2C2C2C" p-id="2351"></path></svg>
         </span>
         <span>新增{{ category }}类别</span>
         <span class="yesorno" @click="confirm">确认</span>
@@ -63,7 +48,7 @@
 </template>
 
 <script>
-import mp3 from "../../../assets/radio.aac";
+// import mp3 from "../../../assets/radio.aac";
 import { nanoid } from "nanoid";
 export default {
   name: "Add",
@@ -108,14 +93,14 @@ export default {
   },
   methods: {
     //播放音频
-    playAudio() {
-      let audio = new Audio();
-      audio.src = mp3;
-      audio.play();
-    },
+    // playAudio() {
+      // let audio = new Audio();
+      // audio.src = mp3;
+      // audio.play();
+    // },
     //点击事件改变颜色
     changeColor(icon) {
-      this.playAudio();
+      // this.playAudio();
       this.icons.forEach((item) => {
         item.color = "inherit";
       });
